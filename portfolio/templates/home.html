@@ -1,0 +1,51 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+{% load static  %}
+<header class = "row bg-black">
+    <div class= "col-md-4">
+<img src= "{% static 'perfil.jpg' %}" alt= "" width= "335" height="335">
+    </div>
+
+    <div class ="col-md-8 my-auto">
+        <h1> Mi nombre es <strong> Jerick Bailon</strong></h1>
+        <h3> Soy un novato en la programacion en Python</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam dignissim enim vitae eleifend molestie.
+        Fusce ac sem ultricies, vestibulum diam at, laoreet augue. Suspendisse in dapibus nunc, nec aliquet lectus. 
+        Vestibulum vehicula id purus et facilisis. Proin volutpat molestie neque sed mollis. 
+        Proin vehicula eros ut i   psum faucibus, sed efficitur nulla tempus. Phasellus a laoreet purus. 
+        Sed ac leo non tellus viverra pulvinar.Donec sollicitudin urna in dolor cursus, quis sollicitudin purus varius. 
+        Mauris quis turpis convallis enim mattis tempus vitae ut nibh. Praesent molestie eleifend dui, sed congue nulla luctus id. 
+        Duis et elit congue, tincidunt mi id, pulvinar.</p>
+        <a href="{% static 'curriculum.pdf' %}" class = "btn btn-primary btn-lg rounded-0 my-3">Download CV</a> 
+        </div>
+
+
+
+<div class= "row my-4 text-center">
+
+<h1>Mis Proyectos </h1>
+<p>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit</p>
+{%for project in projects %}
+
+<div class ="col-md-4 p-4">
+    <div class = "card bg-black card-project text-light">
+        <img src="{{project.image.url}}" alt="{{project.title}}" class = "img-top" />
+        <div class = "card-body">
+<h2>{{project.title}}</h2>
+<p>{{project.description}}</p>
+<br>
+
+{%if project.url %}
+<a href="{{project.url}}" class ="btn btn-light rounded-0 btn-sm" target="_blank"> {{project.url}}</a>
+{% endif %}
+        </div>
+    </div>
+</div> 
+{% endfor %}
+
+
+{% endblock %}
+</div>
+
